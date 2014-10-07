@@ -49,7 +49,13 @@ class KeyboardViewController: UIInputViewController {
     @IBAction func btnClicked(sender: AnyObject)
     {
         var proxy = textDocumentProxy as UITextDocumentProxy
-        proxy.insertText(sender.titleForState(UIControlState.Normal)!)
+        if sender.tag == 100 {
+            proxy.insertText(" ")
+        } else if sender.tag == 200 {
+            proxy.insertText("\n")
+        } else {
+            proxy.insertText(sender.titleForState(UIControlState.Normal)!)
+        }
     }
     
     override func didReceiveMemoryWarning() {
